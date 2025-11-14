@@ -18,11 +18,10 @@
     .container{max-width:1100px}
   </style>
 
-  <!-- PAYPAL SDK (una sola vez por página) -->
+  <!-- PAYPAL SDK (solo una vez) -->
   <script 
     src="https://www.paypal.com/sdk/js?client-id=BAA0PWrPtdZLxyL-DSFiS5rS1k9NAEli809C20CoXa_bJSiUoXhl0Gg0w-AjZyvW2rIWlDWETTRrIG0Y-A&components=hosted-buttons&disable-funding=venmo&currency=USD">
   </script>
-
 </head>
 
 <body class="bg-slate-50 text-slate-900">
@@ -81,7 +80,6 @@
         <p class="mt-3 text-sm text-slate-500">English &amp; Spanish available. Remote worldwide.</p>
       </div>
 
-      <!-- Columna derecha -->
       <div class="mt-10 md:mt-0 flex justify-center md:justify-end">
         <img src="assets/1.png" alt="Scouting Poster" class="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm w-full max-w-md md:max-w-lg" />
       </div>
@@ -125,7 +123,7 @@
       <!-- TARJETAS -->
       <div class="mt-8 grid md:grid-cols-3 gap-6">
 
-        <!-- PLAN 90 USD + PAYPAL -->
+        <!-- PLAN 90 USD -->
         <div class="rounded-2xl border bg-white p-6 shadow-sm flex flex-col">
           <div class="text-sm font-semibold text-blue-700">First Evaluation</div>
           <h3 class="mt-1 text-xl font-bold">On Wyscout</h3>
@@ -138,18 +136,13 @@
             <li>Action plan to get noticed</li>
           </ul>
 
-          <!-- BOTÓN PAYPAL (mismo hostedButtonId) -->
+          <!-- Contenedor PayPal -->
           <div class="mt-6">
-            <div id="paypal-container-plan90"></div>
-            <script>
-              paypal.HostedButtons({
-                hostedButtonId: "BXCPT7X8G7PFS"
-              }).render("#paypal-container-plan90");
-            </script>
+            <div id="paypal-btn-90"></div>
           </div>
         </div>
 
-        <!-- PLAN 130 USD + PAYPAL -->
+        <!-- PLAN 130 USD -->
         <div class="rounded-2xl border-2 border-blue-600 bg-white p-6 shadow-sm flex flex-col">
           <div class="text-sm font-semibold text-blue-700">First Evaluation</div>
           <h3 class="mt-1 text-xl font-bold">Send match video</h3>
@@ -162,18 +155,12 @@
             <li>Priority recommendations</li>
           </ul>
 
-          <!-- BOTÓN PAYPAL -->
           <div class="mt-6">
-            <div id="paypal-container-plan130"></div>
-            <script>
-              paypal.HostedButtons({
-                hostedButtonId: "BXCPT7X8G7PFS"
-              }).render("#paypal-container-plan130");
-            </script>
+            <div id="paypal-btn-130"></div>
           </div>
         </div>
 
-        <!-- PLAN 150 USD + PAYPAL -->
+        <!-- PLAN 150 USD -->
         <div class="rounded-2xl border bg-white p-6 shadow-sm flex flex-col">
           <div class="text-sm font-semibold text-blue-700">Ongoing Development</div>
           <h3 class="mt-1 text-xl font-bold">Bi-weekly Zoom</h3>
@@ -186,14 +173,8 @@
             <li>Progress tracking &amp; priorities</li>
           </ul>
 
-          <!-- BOTÓN PAYPAL -->
           <div class="mt-6">
-            <div id="paypal-container-plan150"></div>
-            <script>
-              paypal.HostedButtons({
-                hostedButtonId: "BXCPT7X8G7PFS"
-              }).render("#paypal-container-plan150");
-            </script>
+            <div id="paypal-btn-150"></div>
           </div>
         </div>
 
@@ -210,14 +191,12 @@
 
         <div class="mt-5 flex flex-col sm:flex-row gap-4 justify-center">
           
-          <!-- Email -->
           <a
             href="mailto:mariano.trasande@gmail.com?subject=Scouting%20Evaluation&body=Hi%20Mariano%2C%20here%20is%20my%20video%20and%20details:"
             class="px-5 py-3 rounded-xl bg-white text-blue-700 font-semibold shadow hover:bg-slate-50 transition">
             Email Mariano
           </a>
 
-          <!-- LinkedIn -->
           <a
             href="https://www.linkedin.com/in/marianotrasande/"
             target="_blank"
@@ -248,6 +227,13 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- RENDER DE LOS 3 BOTONES PAYPAL -->
+  <script>
+    paypal.HostedButtons({ hostedButtonId: "BXCPT7X8G7PFS" }).render("#paypal-btn-90");
+    paypal.HostedButtons({ hostedButtonId: "BXCPT7X8G7PFS" }).render("#paypal-btn-130");
+    paypal.HostedButtons({ hostedButtonId: "BXCPT7X8G7PFS" }).render("#paypal-btn-150");
   </script>
 
 </body>
